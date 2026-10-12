@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Gündoğdu | Kişisel Web Sitesi</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #080d18;
+            --card: #101a2b;
+            --blue: #00c8ff;
+            --text: #f1f5f9;
+            --muted: #a3b1c6;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(8, 13, 24, 0.95);
+            border-bottom: 1px solid #1b2b40;
+            padding: 18px 8%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        nav ul a:hover {
+            color: var(--blue);
+        }
+
+        section {
+            padding: 85px 8%;
+            scroll-margin-top: 65px;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at top, #102b49 0%, transparent 65%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .tag {
+            display: inline-block;
+            color: var(--blue);
+            border: 1px solid #087c9b;
+            background: #0b1c2c;
+            border-radius: 30px;
+            padding: 7px 18px;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 7vw, 72px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h1 span, h2 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: #06111d;
+        }
+
+        .btn-primary:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--blue);
+            color: var(--blue);
+        }
+
+        .btn-outline:hover {
+            background: #102b49;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 32px;
+            background: var(--card);
+            border: 1px solid #1d3047;
+            border-radius: 16px;
+        }
+
+        .about-box p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #1d3047;
+            border-radius: 14px;
+            padding: 26px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--blue);
+        }
+
+        .card .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--blue);
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 32px;
+            background: var(--card);
+            border: 1px solid #1d3047;
+            border-radius: 16px;
+        }
+
+        .contact-item {
+            padding: 17px 0;
+            border-bottom: 1px solid #26364a;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--blue);
+            margin-bottom: 5px;
+        }
+
+        .contact-item a:hover {
+            color: var(--blue);
+        }
+
+        footer {
+            padding: 25px 8%;
+            text-align: center;
+            color: var(--muted);
+            border-top: 1px solid #1b2b40;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: var(--blue);
+        }
+
+        @media (max-width: 750px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about-box, .contact-box {
+                padding: 22px;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#anasayfa" class="logo">M<span>G.</span></a>
+
+            <ul>
+                <li><a href="#anasayfa">Ana Sayfa</a></li>
+                <li><a href="#hakkimda">Hakkımda</a></li>
+                <li><a href="#yetenekler">Alanım</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="anasayfa">
+        <div class="hero-content">
+            <div class="tag">Bilişim Teknolojileri Öğrencisi</div>
+
+            <h1>Merhaba, ben <span>Muhammed Gündoğdu</span></h1>
+
+            <p>
+                Teknolojiye ilgi duyan, kendini geliştirmeyi seven
+                bir bilişim teknolojileri öğrencisiyim.
+                Gelecekte başarılı projeler geliştirmek için öğrenmeye devam ediyorum.
+            </p>
+
+            <a href="#hakkimda" class="btn btn-primary">
+                Beni Tanı
+            </a>
+
+            <a href="#iletisim" class="btn btn-outline">
+                İletişime Geç
+            </a>
+        </div>
+    </section>
+
+    <section id="hakkimda">
+        <h2 class="section-title">Hakkımda <span>.</span></h2>
+        <p class="section-desc">Kısaca ben ve hedeflerim</p>
+
+        <div class="about-box">
+            <p>
+                Merhaba! Ben Muhammed Gündoğdu.
+                Meslek lisesinde Bilişim Teknolojileri alanında eğitim alıyorum.
+            </p>
+
+            <p>
+                Bilgisayarlar, yazılım ve internet teknolojileri
+                ilgimi çekiyor. Yeni bilgiler öğrenmeyi, farklı şeyler
+                denemeyi ve kendimi geliştirmeyi seviyorum.
+            </p>
+
+            <p>
+                Amacım bilişim alanında kendimi geliştirerek
+                yeni projeler üretmek ve gelecekte başarılı bir
+                bilişim uzmanı olmak.
+            </p>
+        </div>
+    </section>
+
+    <section id="yetenekler">
+        <h2 class="section-title">İlgi <span>Alanlarım</span></h2>
+        <p class="section-desc">
+            Eğitim aldığım ve geliştirmek istediğim alanlar
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Bilgisayar Teknolojileri</h3>
+                <p>
+                    Bilgisayar donanımları, işletim sistemleri
+                    ve bilgisayarların çalışma mantığı hakkında
+                    bilgi edinmekle ilgileniyorum.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Web Tasarım</h3>
+                <p>
+                    HTML ve CSS kullanarak modern,
+                    kullanışlı ve mobil uyumlu web siteleri
+                    geliştirmeyi öğreniyorum.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>Kendimi Geliştirme</h3>
+                <p>
+                    Yeni teknolojileri keşfetmek,
+                    yeni beceriler kazanmak ve
+                    geleceğe yönelik projeler geliştirmek istiyorum.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim">
+        <h2 class="section-title">Benimle <span>İletişime Geç</span></h2>
+        <p class="section-desc">
+            Bana aşağıdaki iletişim bilgilerinden ulaşabilirsin.
+        </p>
+
+        <div class="contact-box">
+            <div class="contact-item">
+                <strong>👤 Ad Soyad</strong>
+                Muhammed Gündoğdu
+            </div>
+
+            <div class="contact-item">
+                <strong>📧 E-posta</strong>
+                <a href="mailto:gndmuahmmed3465@gmail.com">
+                    gndmuahmmed3465@gmail.com
+                </a>
+            </div>
+
+            <div class="contact-item">
+                <strong>📱 Telefon</strong>
+                <a href="tel:+905445793765">
+                    0544 579 37 65
+                </a>
+            </div>
+
+            <div class="contact-item">
+                <strong>🎓 Eğitim</strong>
+                Meslek Lisesi - Bilişim Teknolojileri
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            © <span id="yil"></span> Muhammed Gündoğdu.
+            Tüm hakları saklıdır.
+        </p>
+        <p>Kendi geleceğimi kodluyorum. 💙</p>
+    </footer>
+
+    <script>
+        document.getElementById("yil").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
